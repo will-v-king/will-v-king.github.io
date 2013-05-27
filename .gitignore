@@ -1,0 +1,4 @@
+.svn/
+.svn/*
+webapp/WEB-INF/classes/
+webapp/WEB-INF/classes/*
