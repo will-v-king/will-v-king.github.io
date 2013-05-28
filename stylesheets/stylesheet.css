@@ -34,7 +34,7 @@ li {
 	min-width: 210px;
 	position:fixed;
 	top:5px;
-	right:5px;
+	left:5px;
 	border-bottom: 1px dashed #b5e853;
 	padding: 20px 0;
 	margin: 0 0 40px 0;
@@ -72,6 +72,18 @@ header h2 {
 	display: inline-block;
 	text-align: center;
 	margin: 0;
+}
+menu {
+	background: rgba(0, 0, 0, 0.1);
+	width: 10%;
+	min-width: 210px;
+	position:fixed;
+	top:5px;
+	right:5px;
+	border-bottom: 1px dashed #b5e853;
+	padding: 20px 0;
+	margin: 0 0 40px 0;
+	display: inline-block;
 }
 /* Main Content
 */
