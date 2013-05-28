@@ -14,6 +14,9 @@ section {
 	display: block;
 	margin: 0 0 20px 0;
 }
+section img {
+	max-width: 100%
+}
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 20px;
 }
@@ -72,15 +75,16 @@ header h2 {
 #downloads .btn {
 	display: inline-block;
 	text-align: center;
-	margin: 0;
+	margin: 10px;
 }
 menu {
 	background: rgba(0, 0, 0, 0.1);
-	width: 20%;
+	width: 21%;
 	min-width: 250px;
 	position:fixed;
 	top:5px;
 	left:77%;
+	font:0.9em;
 	border-bottom: 1px dashed #b5e853;
 	padding: 20px 0;
 	margin: 0 0 40px 0;
@@ -98,9 +102,6 @@ content {
 content .container {
 	width: 47%;
 	margin: 0 auto;
-}
-section img {
-	max-width: 100%
 }
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
@@ -216,24 +217,34 @@ hr {
 	opacity: 0.6;
 	background: url("../images/blacktocat.png") 0 0 no-repeat;
 }
+#email .btn{
+	display: inline-block;
+	text-align: center;
+	margin:10px;
+}
 /* Links
    a, a:hover, a:visited
 */
-
  a {
 	color: #63c0f5;
 	text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
 a:hover {
 	color: #46a3d8;
+	outline:none;
 }
 a:visited {
 	color: #63c0f5;
 	text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
+	outline:none;
 }
 a:active {
 	color: #b5e853;
 	text-decoration:none;
+	outline:none;
+}
+a:link {
+	outline:none;
 }
 /* Clearfix */
  .cf:before, .cf:after {
