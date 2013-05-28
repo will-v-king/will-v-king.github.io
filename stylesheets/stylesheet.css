@@ -9,9 +9,6 @@ body {
 }
 /* General & 'Reset' Stuff */
  .container {
-	width: 90%;
-	max-width: 600px;
-	margin: 0 auto;
 }
 section {
 	display: block;
@@ -29,19 +26,23 @@ li {
    h2       - project description
 */
  header {
-	background: rgba(0, 0, 0, 0.1);
-	width: 10%;
-	min-width: 210px;
+	background: rgba(69, 87, 47, 0.11);
+	min-width: 127px;
+	min-height: 320px;
 	position:fixed;
-	top:5px;
-	left:5px;
 	border-bottom: 1px dashed #b5e853;
 	padding: 20px 0;
 	margin: 0 0 40px 0;
 	display: inline-block;
+	white-space:nowrap;
+	right:77%;
+	bottom:1%;
+	width: 21%;
+	height:83%;
 }
 header .navbar-logo {
 	width:auto;
+	white-space:normal;
 }
 header .navbar-logo img {
 	width:auto;
@@ -51,7 +52,7 @@ header .navbar-logo img {
 header h1 {
 	font-size: 30px;
 	line-height: 1.5;
-	margin: 0 0 0 -40px;
+	margin: 0 0 0 -30px;
 	font-weight: bold;
 	font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 	color: #b5e853;
@@ -75,11 +76,11 @@ header h2 {
 }
 menu {
 	background: rgba(0, 0, 0, 0.1);
-	width: 10%;
-	min-width: 210px;
+	width: 20%;
+	min-width: 250px;
 	position:fixed;
 	top:5px;
-	right:5px;
+	left:77%;
 	border-bottom: 1px dashed #b5e853;
 	padding: 20px 0;
 	margin: 0 0 40px 0;
@@ -90,6 +91,13 @@ menu {
  #main_content {
 	width: 100%;
 	-webkit-font-smoothing: antialiased;
+}
+content {
+	width:47%;
+}
+content .container {
+	width: 47%;
+	margin: 0 auto;
 }
 section img {
 	max-width: 100%
