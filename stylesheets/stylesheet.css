@@ -217,7 +217,7 @@ hr {
 	opacity: 0.6;
 	background: url("../images/blacktocat.png") 0 0 no-repeat;
 }
-#email .btn{
+#email .btn {
 	display: inline-block;
 	text-align: center;
 	margin:10px;
@@ -238,10 +238,10 @@ a:visited {
 	text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 	outline:none;
 }
-a:active {
+a:active, a:focus {
 	color: #b5e853;
 	text-decoration:none;
-	outline:none;
+	outline:medium none;
 }
 a:link {
 	outline:none;
