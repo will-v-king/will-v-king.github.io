@@ -34,6 +34,7 @@ li {
 	min-height: 320px;
 	position:fixed;
 	border-bottom: 1px dashed #b5e853;
+	border-right: 1px dashed #b5e853;
 	padding: 20px 0;
 	margin: 0 0 40px 0;
 	display: inline-block;
@@ -86,6 +87,7 @@ menu {
 	left:77%;
 	font:0.9em;
 	border-bottom: 1px dashed #b5e853;
+	border-right: 1px dashed #b5e853;
 	padding: 20px 0;
 	margin: 0 0 40px 0;
 	display: inline-block;
