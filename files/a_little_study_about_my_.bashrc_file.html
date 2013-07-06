@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen"
+		/>
+		<link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen"
+		/>
+		<link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print"
+		/>
+		<title>A little study about my .bashrc file</title>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				 <h1>A little study about my .bashrc file</h1>
+
+				 <h2>Will-V-King's Blog</h2>
+
+				<div class="navbar-logo">
+					<ul>
+						<li>
+							<img src="./images/drawing.svg"></img>
+							<img src="./images/head.png"></img>
+						</li>
+					</ul>
+				</div>
+				<div class="navbar-button">
+					<ul>
+						<li>	<a href="./index.html">index</a>
+
+						</li>
+						<li>	<a href="./main.html">main</a>
+
+						</li>
+						<li>	<a href="./app.html">app</a>
+
+						</li>
+						<li>	<a href="./about.html">about</a>
+
+						</li>
+						<li>	<a href="./help.html">help</a>
+
+						</li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<menu>
+			<section id="menu">
+					<h3>Captions in This Page</h3>
+
+				<div>
+					<ul>
+						<li>	<a href="#A">2013-7-5 17:52:54</a>
+
+						</li>
+					</ul>
+					<section id="downloads"> <a href="https://github.com/will-v-king" class="btn btn-github" target="_blank"><span class="icon"></span>View on GitHub</a>
+
+					</section>
+				</div>
+			</section>
+		</menu>
+		<content>
+			<div class="container">
+				<section id="main_content">
+						<h3 id="A">2013-7-5 17:52:54</h3>
+
+					<p>These days I'm study linux shell script on YouTube. And I read a code:</p><pre><code>
+					exec \< `tty`</code></pre>
+					<p>Then I googled bash tty, and found this message: "The main difference in themeing the shell is that with the GUI based terminal you're usually presented with a GUI to change color/layout/etc... but with a CLI only install you need to edit your .bashrc file in your home directory."</p>
+					<p>So I began my .bashrc journey.</p>
+					<p>I found these code in my ~/.bashrc file:<pre><code>
+					 # some more ls aliases
+					 alias ll='ls -alF'
+					 alias la='ls -A'
+					 alias l='ls -CF'
+					</code></pre>
+					<p>I tried these command in my terminal, they works.</p>
+					<pre><code>
+					 # Add an "alert" alias for long running commands.  Use like so:
+					 #   sleep 10; alert
+					 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal ||     echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*ale    rt$//'\'')"'
+					</code></pre>
+					<p>This command are more wonderful. try:</p>
+					<pre></code>
+					 alert "hello world"
+					</code></pre>
+
+				</section>
+			</div>
+		</content>
+		<footer>
+			<div class="container">
+				<section id="email" class="btn btn-github"><a href="mailto:iemailwill@gmail.com">E-Mail Me</a>
+
+				</section>
+			</div>
+		</footer>
+	</body>
+
+</html>
