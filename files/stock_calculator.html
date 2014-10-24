@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+ </head>
+ <body >
+	<div id="stock_total_value">市值:
+		<input id="stock_total_value_input" class="number"  type="text" value="0"></input> = 
+		<span id="stock_num">股票数：</span>
+			<span>
+				<input id="stock_num_input" class="number" type="text" value="0" step="100" pattern="^[0-9]+$"></input>
+			</span>
+		<span>X</span>
+		<span id="stock_price">股票价格：
+			<span>
+				<input id="stock_price_input_a"  class="number" type="text" value="10" style="width:40px"></input>
+				<span style="max-width:4px;width:2px;padding:0px:margin:0px;border:0px;text-align:center;">.</span>
+				<input id="stock_price_input_b" class="number"  type="text" value="00" style="width:40px" step="10"></input>
+			</span>
+		</span>
+		 <span style="position:absolute;right:0px;margin:0px 100px 0px 200px;white-space:nowrap;">
+			 <input id="button_minus" type="button" value="-"></input>
+			 <input id="button_add" type="button" value="+"></input>
+			 <span><input id="stock_offset" class="number" type="text" value="100" style="width:60px"></input>股</span>
+		 </span>
+	</div>
+	<div id="stock_total_value_image" style="margin:10px;border:1px;height:20px;background-color:green;"></div>
+	 <div id="money_total_value">账户可用金额：
+		 <span style="">
+			 <input id="money_total_value_input" class="number"  type="text" value="10000"></input>
+		 </span>
+	 </div>
+	<div id="money_total_value_image" style="margin:10px;border:1px;height:20px;background-color:red;"></div>
+	<div id="stock_money_value_image" style="padding:5px;margin:10px;border:0px;width:calc( 100% - 30px );height:20px;background-color:gray;white-space:nowrap;">
+		<span id="stock_value_percent_image" style="float:left;display:inline-block;height:18px;background-color:green;width:0%;border:0px;padding:0px;margin:0px;"></span>
+		<span id="money_value_percent_image" style="float:right;display:inline-block;height:18px;background-color:red;width:100%;border:0px;padding:0px;margin:0px;"></span>
+	</div>
+	<script type="text/javascript" src="https://github.com/will-v-king/will-v-king.github.io/javscript/jquery2.1.1.js"></script>
+  <script type="text/javascript">
+  $(function(){
+		  // input style
+		  $(".number").on("mouseover",function(){
+					  if($(this).attr("type") == "text"){
+						  $(this).attr("type", "number");
+					  }
+				  }).on("mouseout",function(){
+					  if($(this).attr("type") == "number"){
+						  $(this).attr("type", "text");
+					  }
+					  });
+		  // func
+		  var sync_value = function(stock_total_value, money_total_value){
+				var stock_value_percent = (((stock_total_value*100)/(stock_total_value + money_total_value)).toString() + "%");
+				var money_value_percent = (((money_total_value*100)/(stock_total_value + money_total_value)).toString() + "%");
+				$("#stock_value_percent_image").css("width", stock_value_percent);
+				$("#stock_total_value_image").css("width", $("#stock_value_percent_image").width());
+				$("#money_value_percent_image").css("width", money_value_percent);
+				$("#money_total_value_image").css("width", $("#money_value_percent_image").width());
+		  };
+		  // button minus
+		  $("#button_minus").on("click",function(){
+			  var stock_num = parseFloat($("#stock_num_input").val()),
+			  stock_price = parseFloat($("#stock_price_input_a").val() + "." + $("#stock_price_input_b").val()),
+			  stock_total_value = parseFloat($("#stock_total_value_input").val()),
+			  money_total_value = parseFloat($("#money_total_value_input").val()),
+			  stock_offset = parseFloat($("#stock_offset").val());
+			  if(stock_total_value >= stock_price * stock_offset){
+					money_total_value += stock_price * stock_offset;
+					stock_total_value -= stock_price * stock_offset;
+					stock_num -= stock_offset;
+				}else{
+					/*do nothing*/
+				}
+				$("#stock_num_input").val(stock_num);
+				$("#stock_total_value_input").val(stock_total_value);
+				$("#money_total_value_input").val(money_total_value);
+				sync_value(stock_total_value, money_total_value);
+
+			  });
+		  // button add
+		  $("#button_add").on("click",function(){
+			  var stock_num = parseFloat($("#stock_num_input").val()),
+			  stock_price = parseFloat($("#stock_price_input_a").val() + "." + $("#stock_price_input_b").val()),
+			  stock_total_value = parseFloat($("#stock_total_value_input").val()),
+			  money_total_value = parseFloat($("#money_total_value_input").val()),
+			  stock_offset = parseFloat($("#stock_offset").val());
+			  if(money_total_value >= stock_price * stock_offset){
+					money_total_value -= stock_price * stock_offset;
+					stock_total_value += stock_price * stock_offset;
+					stock_num += stock_offset;
+				}else{
+					/*do nothing*/
+				}
+				$("#stock_num_input").val(stock_num);
+				$("#stock_total_value_input").val(stock_total_value);
+				$("#money_total_value_input").val(money_total_value);
+				sync_value(stock_total_value, money_total_value);
+			  });
+		  var stock_num_onchange = function(){
+					  var stock_num = parseFloat($("#stock_num_input").val()),
+					  stock_price = parseFloat($("#stock_price_input_a").val() + "." + $("#stock_price_input_b").val()),
+					  stock_total_value = parseFloat($("#stock_total_value_input").val()),
+					  money_total_value = parseFloat($("#money_total_value_input").val()),
+					  stock_offset = parseFloat($("#stock_offset").val());
+				//$("#stock_num_input").val(stock_num);
+				$("#stock_total_value_input").val(stock_num*stock_price);
+				//$("#money_total_value_input").val(money_total_value);
+					  sync_value(stock_num*stock_price, money_total_value);
+				  };
+		  $("#stock_num_input").on("mouseout", stock_num_onchange).on("change", stock_num_onchange).on("blur",stock_num_onchange);
+		  var stock_price_input_onchange = function(){
+					  var stock_num = parseFloat($("#stock_num_input").val()),
+					  stock_price = parseFloat($("#stock_price_input_a").val() + "." + $("#stock_price_input_b").val()),
+					  stock_total_value = parseFloat($("#stock_total_value_input").val()),
+					  money_total_value = parseFloat($("#money_total_value_input").val()),
+					  stock_offset = parseFloat($("#stock_offset").val());
+				//$("#stock_num_input").val(stock_num);
+				$("#stock_total_value_input").val(stock_num*stock_price);
+				//$("#money_total_value_input").val(money_total_value);
+					  sync_value(stock_num*stock_price, money_total_value);
+				  };
+		  $("#stock_price_input_a").on("mouseout",stock_price_input_onchange).on("change",stock_price_input_onchange).on("blur",stock_price_input_onchange);
+		  $("#stock_price_input_b").on("mouseout",stock_price_input_onchange).on("change",stock_price_input_onchange).on("blur",stock_price_input_onchange);
+		  var stock_total_value_onchange = function(){
+					  var stock_num = parseFloat($("#stock_num_input").val()),
+					  stock_price = parseFloat($("#stock_price_input_a").val() + "." + $("#stock_price_input_b").val()),
+					  stock_total_value = parseFloat($("#stock_total_value_input").val()),
+					  money_total_value = parseFloat($("#money_total_value_input").val()),
+					  stock_offset = parseFloat($("#stock_offset").val());
+				$("#stock_num_input").val(stock_total_value/stock_price);
+				//$("#stock_total_value_input").val(stock_num*stock_price);
+				//$("#money_total_value_input").val(money_total_value);
+					  sync_value(stock_total_value, money_total_value);
+				  };
+		  $("#stock_total_value_input").on("mouseout", stock_total_value_onchange).on("change", stock_total_value_onchange).on("blur",stock_total_value_onchange);
+		  var money_total_value_onchange = function(){
+					  var stock_num = parseFloat($("#stock_num_input").val()),
+					  stock_price = parseFloat($("#stock_price_input_a").val() + "." + $("#stock_price_input_b").val()),
+					  stock_total_value = parseFloat($("#stock_total_value_input").val()),
+					  money_total_value = parseFloat($("#money_total_value_input").val()),
+					  stock_offset = parseFloat($("#stock_offset").val());
+				//$("#stock_num_input").val(stock_total_value/stock_price);
+				//$("#stock_total_value_input").val(stock_num*stock_price);
+				//$("#money_total_value_input").val(money_total_value);
+					  sync_value(stock_total_value, money_total_value);
+		  };
+		  $("#money_total_value_input").on("mouseout", stock_total_value_onchange).on("change", stock_total_value_onchange).on("blur",stock_total_value_onchange);
+	});
+  </script>
+ </body>
+ 
+</html>
