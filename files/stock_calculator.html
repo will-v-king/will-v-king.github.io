@@ -49,7 +49,7 @@
 	<div id="suggested_stock_totle_value">
 		建议持股值：
 	</div>
-		<div id="suggested_stock_totle_value_image" style="margin:10px;height: 0px; border-color: green; border-width:20px; border-style:ridge;"></div>
+	<div id="suggested_stock_totle_value_image" style="margin:10px;height: 0px; border-color: green; border-width:20px; border-style:ridge;"></div>
 
 
 	<script type="text/javascript" src="https://will-v-king.github.io/javascripts/jquery-2.1.1.js"></script>
@@ -88,7 +88,7 @@
 				$("#stock_total_value_image").css("width", $("#stock_value_percent_image").width());
 				$("#money_value_percent_image").css("width", money_value_percent);
 				$("#money_total_value_image").css("width", $("#money_value_percent_image").width());
-				$("#suggest_stock_totle_value_image").css("width", (((stock_price)/(stock_price + break_even_cost_price) * (1 + ( break_even_cost_price - stock_price) / (break_even_cost_price + stock_price)) * 100).toString() + "%"));
+				$("#suggested_stock_totle_value_image").css("width", (((stock_price)/(stock_price + break_even_cost_price) * (1 + ( break_even_cost_price - stock_price) / (break_even_cost_price + stock_price)) * 100).toString() + "%"));
 		  };
 		  
 		  // button minus
