@@ -1,0 +1,6 @@
+for IE6 to support .png image transparent. try pngbehavior. (pngbehavior102.zip)
+(or fxcanvas-0.2(beta4)-supersonic.zip);
+
+for IE6,7,8 to support canvas try excanvas. (excanvas_r3.zip);
+
+for Canvas background color changing via analsis image. try chameleon.js (Chameleon.js-master.zip);
