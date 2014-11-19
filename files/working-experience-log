@@ -4,3 +4,6 @@ for IE6 to support .png image transparent. try pngbehavior. (pngbehavior102.zip)
 for IE6,7,8 to support canvas try excanvas. (excanvas_r3.zip);
 
 for Canvas background color changing via analsis image. try chameleon.js (Chameleon.js-master.zip);
+
+IE7.js is a JavaScript library to make Microsoft Internet Explorer behave like a standards-compliant browser. It fixes many HTML and CSS issues and makes transparent PNG work correctly under IE5 and IE6.
+https://code.google.com/p/ie7-js/
